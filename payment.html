@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Methods</h2>
+        <form id="payment-form">
+            <label>
+                <input type="radio" name="payment-method" value="bkash" required> bKash
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="nagad"> Nagad
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="cash"> Pay on Delivery
+            </label>
+            <button type="submit">Confirm Payment</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('payment-form').onsubmit = function(event) {
+            event.preventDefault();
+            
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+            const order = JSON.parse(localStorage.getItem("orders"));
+            
+            if (order) {
+                // Simulate sending the order to the backend
+                alert("Payment successful. Order confirmed!");
+
+                // Here, you would typically send the order data to the backend to be stored
+                // For example, use AJAX to send data to the server
+                // On successful submission, clear the order from local storage and redirect
+                localStorage.removeItem("orders");
+                
+                // Redirect to a success page or back to the user dashboard
+                
+            }
+        };
+    </script>
+</body>
+</html>

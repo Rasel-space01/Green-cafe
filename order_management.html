@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="order_management.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div id="order-management">
+        <h2>Order Management</h2>
+        <ul id="order-list"></ul>
+    </div>
+
+    <script>
+        function displayOrders() {
+            const orders = JSON.parse(localStorage.getItem("orders")) || [];
+            const orderList = document.getElementById('order-list');
+            orderList.innerHTML = ''; 
+
+            if (orders.length === 0) {
+                orderList.innerHTML = '<li>No orders available.</li>';
+                return;
+            }
+
+            orders.forEach((order, index) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    Table: ${order.table} - Items: ${order.items.map(item => item.name + ' (x' + item.quantity + ')').join(', ')}
+                    - Payment Status: ${order.paymentStatus} - Delivery Status: ${order.deliveryStatus}
+                    <button onclick="markAsDelivered(${index})">Mark as Delivered</button>
+                `;
+                orderList.appendChild(listItem);
+            });
+        }
+
+        function markAsDelivered(index) {
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            if (orders[index]) {
+                orders[index].deliveryStatus = "Delivered";
+                localStorage.setItem("orders", JSON.stringify(orders));
+                displayOrders(); 
+            }
+        }
+
+        window.onload = displayOrders;
+		
+		function markAsDelivered(index) {
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    if (orders[index]) {
+        const deliveredOrder = {
+            date: new Date().toLocaleString(),
+            tableNumber: orders[index].tableNumber,
+            items: orders[index].items,
+            totalAmount: orders[index].items.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+            status: "Delivered"
+        };
+        
+        // Store delivered order in order history
+        const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+        orderHistory.push(deliveredOrder);
+        localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+
+        // Remove from orders
+        orders.splice(index, 1);
+        localStorage.setItem("orders", JSON.stringify(orders));
+        displayOrders(); 
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set up background image */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('images/greennx1.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white; /* Default text color to white */
+}
+
+/* Container for login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Styling the login box */
+.login-box {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for contrast */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Heading styling */
+.login-box h1 {
+    color: white; /* Set to white to contrast with background */
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Labels for form inputs */
+.login-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Styling for input fields */
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Button styles */
+.login-box button {
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* Hover effect for button */
+.login-box button:hover {
+    background-color: #218838;
+}
+
+/* Links for Register, Admin Login, and Guest Access */
+.login-box a {
+    color: #f8d210;
+    text-decoration: none;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.login-box p {
+    color: red;
+    margin-bottom: 15px;
+}

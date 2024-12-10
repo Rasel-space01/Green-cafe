@@ -1,0 +1,177 @@
+
+/* Styles for the student dashboard */
+body {
+    background: url('images/cafe3.jpg') no-repeat center center fixed;
+    background-size: cover; /* Ensures the background image covers the entire area */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    min-height: 100vh; /* Ensures the body covers the full viewport height */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+}
+
+
+#table-section {
+    text-align: center; /* উপাদানগুলি কেন্দ্রিভাবে সজ্জিত করা */
+    border: 1px solid #ccc; /* একটি বর্ডার যোগ করা */
+    padding: 20px; /* প্যাডিং যোগ করা */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* হালকা ছায়া যোগ করা */
+    background-color: #f9f9f9; /* ব্যাকগ্রাউন্ড রঙ */
+    border-radius: 10px; /* প্রান্তের রেডিয়াস */
+}
+
+.dashboard-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.welcome-message {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+#table-section {
+    margin-bottom: 20px;
+	font-size: 16px;
+}
+
+#table-number {
+    padding: 10px;
+    width: 60%;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+
+}
+
+#start-order {
+    padding: 10px 20px;
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#start-order:hover {
+    background-color: #ff6f61;
+}
+
+#order-section h2 {
+    padding: 0;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 300px;
+	display: block;
+	padding: 10px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	
+}
+
+#menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Increased gap for a more spacious look */
+    justify-content: center;
+    padding: 20px; /* Add padding for overall space around the container */
+}
+
+.menu-item {
+    flex: 1 1 calc(30% - 40px); /* Reduced size for more columns */
+    border: none; /* Remove border for a cleaner look */
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f9f9f9; /* Softer background color */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for a more pronounced effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transition effects */
+    overflow: hidden; /* Ensures content doesn't overflow */
+    text-align: center; /* Center-align text for a polished look */
+}
+
+.menu-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.menu-item img {
+    max-width: 100%;
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures images are nicely cropped */
+    border-radius: 10px;
+    margin-bottom: 15px; /* Space between image and text */
+    transition: transform 0.3s; /* Smooth transition effect */
+}
+
+.menu-item:hover img {
+    transform: scale(1.05); /* Slight zoom-in effect on hover */
+}
+
+.menu-item h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px; /* Space between title and description */
+    font-family: 'Georgia', serif; /* Elegant font style */
+}
+
+.menu-item p {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif; /* Clean and modern font for description */
+}
+
+.menu-item .price {
+    font-size: 1.2em;
+    color: #000;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+#order-summary {
+	background-color: #c1afab;
+	text-align: center;
+	display: block;
+	border-radius: 15px;
+	
+	
+	
+}
+
+#order-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 300px;
+	display: block;
+	padding: 10px;
+	background-color: #ffffff;
+	color: red;
+	border-radius: 5px;
+    margin-top: 10px;
+}
+
+#place-order {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#place-order:hover {
+    background-color: #ff6f61;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <link rel="stylesheet" href="order_history.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #order-history {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e9ecef;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        li:hover {
+            background: #d3d3d3;
+        }
+
+        strong {
+            color: #555;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .summary {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e2f7e2;
+            border-left: 5px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div id="order-history">
+        <h2>Order History</h2>
+        <div class="summary" id="summary"></div>
+        <ul id="history-list"></ul>
+        <button onclick="window.print()">Print Order History</button>
+    </div>
+
+    <script>
+        function displayOrderHistory() {
+            const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+            const historyList = document.getElementById('history-list');
+            const summary = document.getElementById('summary');
+            historyList.innerHTML = '';
+            let totalSales = 0;
+            let totalItems = 0;
+            let itemCount = {};
+
+            if (orderHistory.length === 0) {
+                historyList.innerHTML = 'No order history available.';
+                summary.innerHTML = '';
+                return;
+            }
+
+            orderHistory.forEach(order => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <strong>Items:</strong> ${order.items.map(item => `${item.name} (Price: ${item.price} BDT, Quantity: ${item.quantity})`).join(', ')} <br>
+                    <strong>Total Amount:</strong> ${order.totalAmount} BDT
+                `;
+                historyList.appendChild(listItem);
+                totalSales += order.totalAmount;
+                totalItems += order.items.reduce((sum, item) => sum + item.quantity, 0);
+
+                // Count items sold
+                order.items.forEach(item => {
+                    itemCount[item.name] = (itemCount[item.name] || 0) + item.quantity;
+                });
+            });
+
+            summary.innerHTML = `
+                <strong>Today's Total Sales:</strong> ${totalSales} BDT <br>
+                <strong>Total Items Sold:</strong> ${totalItems} <br>
+                <strong>Items Sold Today:</strong> ${Object.entries(itemCount).map(([name, count]) => `${name}: ${count} pcs`).join(', ')}
+            `;
+        }
+
+        window.onload = displayOrderHistory;
+    </script>
+</body>
+</html>

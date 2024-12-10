@@ -1,0 +1,59 @@
+
+/* Styles for the manager dashboard */
+body {
+    background: url('images/manager-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.manager-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+#manager-order-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#manager-order-list li {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#manager-order-list button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+#manager-order-list button:hover {
+    background-color: #0056b3;
+}
+
+#manager-order-list span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+
